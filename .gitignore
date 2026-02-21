@@ -30,8 +30,22 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files (secrets, database URLs, API keys)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# Editor directories and files
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # vercel
 .vercel
@@ -39,3 +53,32 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# research
+research/
+
+# ----------------------------------------------------------------------
+# 追加のセキュリティ・不要ファイル定義
+# ----------------------------------------------------------------------
+
+# IDE / エディタ設定の追加
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# OS / システム固有
+Thumbs.db
+
+# 証明書・鍵（誤ってコミットしないよう明示的除外）
+*.key
+*.crt
+
+# パッケージマネージャキャッシュ
+/.pnpm-store/
+
+# Lint キャッシュ
+.eslintcache
+.stylelintcache
+
+# ログファイル全般
+*.log

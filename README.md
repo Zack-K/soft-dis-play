@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Soft Dis-Play (ソフト・ディスプレイ)
 
-## Getting Started
+「その悪口、もう少しお上品に言えませんか？」
 
-First, run the development server:
+Soft Dis-Play は、配られた「悪口カード」と「クッション言葉カード」などを組み合わせ、最も巧みでマイルドな表現を作り出すオンラインマルチプレイヤー・パーティーボードゲームです。
+
+## 開発の背景と目的
+
+このプロジェクトは以下の2つの目的からスタートしました。
+
+1. **AIツール「Antigravity」の習熟**
+   - 新しいAIエージェント型コーディングアシスタントである Antigravity とのペアプログラミングを通じて、効率的なWebアプリ開発のフローやAIとの協働手法を学び、使い慣れるための実践プロジェクトです。
+2. **ボードゲームへの情熱**
+   - 開発者自身がボードゲームをこよなく愛しており、「いつかオリジナルのオンラインボードゲームを自分で作ってみたい」という長年の夢を叶える第一歩として形にしました。
+
+## ゲームのルール
+
+1. **入室と待機**
+   - 1人が「ホスト」としてルームを作成し、他のプレイヤーは「ルームコード」を入力して参加します（2〜10人程度を想定）。
+2. **手札の配布**
+   - ゲームが始まると、各プレイヤーに複数のカード（悪口、クッション言葉、名詞、助詞）がランダムに配られます。
+3. **文章の組み立て（Select フェーズ）**
+   - 手札のカードを選び、ドラッグ＆ドロップで語順を並べ替えて「いかにソフトに悪口を伝えるか」というテーマで1つの文章を完成させます。
+4. **発表と投票（Reveal & Vote フェーズ）**
+   - 全員が提出し終えると、完成した文章が一斉に公開されます。
+   - 自分以外のプレイヤーが作った「一番巧妙で面白い（またはマイルドな）表現」に投票します。
+5. **結果発表（Result フェーズ）**
+   - 最多得票を集めたプレイヤーがポイントを獲得します。これを指定のラウンド数繰り返し、最終的な勝者を決めます。
+
+## 技術スタック
+
+- **Frontend:** Next.js (App Router), React, TypeScript, Tailwind CSS
+- **Backend / Database:** Supabase (PostgreSQL, Realtime subscription)
+- **UI Interaction:** `@dnd-kit` (ドラッグ＆ドロップによる文章ビルダー)
+- **Deployment:** Vercel (予定)
+- **AI Assistant:** Antigravity
+
+## ローカル開発環境の構築
 
 ```bash
+# パッケージのインストール
+npm install
+
+# Supabase環境変数の設定
+# .env.local ファイルを作成し、以下を設定してください
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# 開発サーバーの起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで `http://localhost:3000` にアクセスしてください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 今後の展望
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+現在はMVP（Minimum Viable Product）としての基本機能が完了しています。今後は以下のような機能拡張を検討しています。
+- タイマー機能による制限時間の導入
+- スマホ等モバイルデバイスでのUI/UX最適化
+- カード種類の追加や、ユーザーによるオリジナルカードデッキ作成機能

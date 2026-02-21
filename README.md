@@ -35,7 +35,7 @@ Soft Dis-Play は、配られた「悪口カード」と「クッション言葉
 - **Frontend:** Next.js (App Router), React, TypeScript, Tailwind CSS
 - **Backend / Database:** Supabase (PostgreSQL, Realtime subscription)
 - **UI Interaction:** `@dnd-kit` (ドラッグ＆ドロップによる文章ビルダー)
-- **Deployment:** Vercel (予定)
+- **Deployment:** Vercel
 - **AI Assistant:** Antigravity
 
 ## ローカル開発環境の構築

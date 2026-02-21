@@ -75,10 +75,10 @@ export const PHASE_TIME_LIMITS: Partial<Record<GamePhase, number>> = {
 
 /** 手札枚数 */
 export const HAND_SIZE = {
-  insults: 3,
-  cushions: 3,
-  nouns: 2,
-  particles: 2,
+  insults: 4,
+  cushions: 4,
+  nouns: 8,
+  particles: 8,
 } as const;
 
 /** 1ラウンドの交換可能枚数上限 */

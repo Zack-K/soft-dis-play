@@ -10,6 +10,7 @@ export default function Lobby() {
   const router = useRouter();
   const [playerName, setPlayerName] = useState('');
   const [roomCode, setRoomCode] = useState('');
+  const [totalRounds, setTotalRounds] = useState(3);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -30,7 +31,7 @@ export default function Lobby() {
       const code = generateCode();
       const { data: room, error: roomError } = await supabase
         .from('rooms')
-        .insert({ code, host_id: 'temp', status: 'waiting', total_rounds: 4 })
+        .insert({ code, host_id: 'temp', status: 'waiting', total_rounds: totalRounds })
         .select()
         .single();
 
@@ -57,7 +58,7 @@ export default function Lobby() {
         room_id: room.id,
         phase: 'waiting',
         round: 1,
-        total_rounds: 4,
+        total_rounds: totalRounds,
         plays: [],
         votes: {}
       });
@@ -133,16 +134,28 @@ export default function Lobby() {
           )}
 
           <div className="mb-6">
-            <label className="block text-sm font-bold text-gray-700 mb-2">ニックネーム</label>
+            <label className="block text-sm font-bold text-gray-700 mb-2">ニックネーム (必須)</label>
             <input
               type="text"
               value={playerName}
               onChange={(e) => setPlayerName(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors mb-4"
               placeholder="あなたの名前"
               maxLength={10}
               disabled={loading}
             />
+
+            <label className="block text-sm font-bold text-gray-700 mb-2">ラウンド数 (新しく作る場合)</label>
+            <select
+              value={totalRounds}
+              onChange={(e) => setTotalRounds(Number(e.target.value))}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors cursor-pointer bg-gray-50 mb-2"
+              disabled={loading}
+            >
+              {[1, 2, 3, 4, 5, 10].map(r => (
+                <option key={r} value={r}>{r} ラウンドで遊ぶ</option>
+              ))}
+            </select>
           </div>
 
           <div className="space-y-4 pt-2">

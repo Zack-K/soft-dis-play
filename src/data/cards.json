@@ -278,6 +278,156 @@
       "id": "n15",
       "category": "抽象",
       "text": "センス"
+    },
+    {
+      "id": "n16",
+      "category": "ビジネス",
+      "text": "進捗"
+    },
+    {
+      "id": "n17",
+      "category": "ビジネス",
+      "text": "納期"
+    },
+    {
+      "id": "n18",
+      "category": "ビジネス",
+      "text": "予算"
+    },
+    {
+      "id": "n19",
+      "category": "ビジネス",
+      "text": "稟議"
+    },
+    {
+      "id": "n20",
+      "category": "ビジネス",
+      "text": "クライアント"
+    },
+    {
+      "id": "n21",
+      "category": "ビジネス",
+      "text": "仕様"
+    },
+    {
+      "id": "n22",
+      "category": "ビジネス",
+      "text": "タスク"
+    },
+    {
+      "id": "n23",
+      "category": "ビジネス",
+      "text": "指示"
+    },
+    {
+      "id": "n24",
+      "category": "ビジネス",
+      "text": "対応"
+    },
+    {
+      "id": "n25",
+      "category": "ビジネス",
+      "text": "連絡"
+    },
+    {
+      "id": "n26",
+      "category": "日常・概念",
+      "text": "常識"
+    },
+    {
+      "id": "n27",
+      "category": "日常・概念",
+      "text": "態度"
+    },
+    {
+      "id": "n28",
+      "category": "日常・概念",
+      "text": "やり方"
+    },
+    {
+      "id": "n29",
+      "category": "日常・概念",
+      "text": "結果"
+    },
+    {
+      "id": "n30",
+      "category": "日常・概念",
+      "text": "理由"
+    },
+    {
+      "id": "n31",
+      "category": "日常・概念",
+      "text": "言い訳"
+    },
+    {
+      "id": "n32",
+      "category": "日常・概念",
+      "text": "配慮"
+    },
+    {
+      "id": "n33",
+      "category": "日常・概念",
+      "text": "発言"
+    },
+    {
+      "id": "n34",
+      "category": "日常・概念",
+      "text": "考え"
+    },
+    {
+      "id": "n35",
+      "category": "日常・概念",
+      "text": "行動"
+    },
+    {
+      "id": "n36",
+      "category": "感情・評価",
+      "text": "不満"
+    },
+    {
+      "id": "n37",
+      "category": "感情・評価",
+      "text": "迷惑"
+    },
+    {
+      "id": "n38",
+      "category": "感情・評価",
+      "text": "限界"
+    },
+    {
+      "id": "n39",
+      "category": "感情・評価",
+      "text": "妥協"
+    },
+    {
+      "id": "n40",
+      "category": "感情・評価",
+      "text": "評価"
+    },
+    {
+      "id": "n41",
+      "category": "感情・評価",
+      "text": "期待"
+    },
+    {
+      "id": "n42",
+      "category": "感情・評価",
+      "text": "責任"
+    },
+    {
+      "id": "n43",
+      "category": "感情・評価",
+      "text": "苦労"
+    },
+    {
+      "id": "n44",
+      "category": "感情・評価",
+      "text": "負担"
+    },
+    {
+      "id": "n45",
+      "category": "感情・評価",
+      "text": "ストレス"
     }
   ],
   "particleCards": [
@@ -330,6 +480,106 @@
       "id": "p10",
       "category": "助詞",
       "text": "まで"
+    },
+    {
+      "id": "p11",
+      "category": "助詞",
+      "text": "が"
+    },
+    {
+      "id": "p12",
+      "category": "助詞",
+      "text": "は"
+    },
+    {
+      "id": "p13",
+      "category": "助詞",
+      "text": "を"
+    },
+    {
+      "id": "p14",
+      "category": "助詞",
+      "text": "に"
+    },
+    {
+      "id": "p15",
+      "category": "助詞",
+      "text": "で"
+    },
+    {
+      "id": "p16",
+      "category": "助詞",
+      "text": "だから"
+    },
+    {
+      "id": "p17",
+      "category": "助詞",
+      "text": "そして"
+    },
+    {
+      "id": "p18",
+      "category": "助詞",
+      "text": "しかし"
+    },
+    {
+      "id": "p19",
+      "category": "助詞",
+      "text": "あるいは"
+    },
+    {
+      "id": "p20",
+      "category": "助詞",
+      "text": "へ"
+    },
+    {
+      "id": "p21",
+      "category": "助詞",
+      "text": "すら"
+    },
+    {
+      "id": "p22",
+      "category": "助詞",
+      "text": "さえ"
+    },
+    {
+      "id": "p23",
+      "category": "助詞",
+      "text": "しか"
+    },
+    {
+      "id": "p24",
+      "category": "助詞",
+      "text": "ばかり"
+    },
+    {
+      "id": "p25",
+      "category": "助詞",
+      "text": "など"
+    },
+    {
+      "id": "p26",
+      "category": "助詞",
+      "text": "くらい"
+    },
+    {
+      "id": "p27",
+      "category": "助詞",
+      "text": "ほど"
+    },
+    {
+      "id": "p28",
+      "category": "助詞",
+      "text": "より"
+    },
+    {
+      "id": "p29",
+      "category": "助詞",
+      "text": "について"
+    },
+    {
+      "id": "p30",
+      "category": "助詞",
+      "text": "みたいに"
     }
   ]
 }

@@ -3,7 +3,7 @@
 import { useEffect, useState, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { Room, Player, GameState, Card, Hand as HandType, Play, GamePhase } from '@/types';
+import { Room, Player, GameState, Card, Hand as HandType, Play, GamePhase, HAND_SIZE } from '@/types';
 import { Hand } from '@/components/Hand';
 import { VotePanel } from '@/components/VotePanel';
 import { ScoreBoard } from '@/components/ScoreBoard';
@@ -30,6 +30,8 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
     // 文章ビルダーの状態: 選択済みカードの順序付き配列
     const [sentence, setSentence] = useState<Card[]>([]);
     const [hasCompletedExchange, setHasCompletedExchange] = useState(false);
+    // 交換フェーズの状態: 交換対象カードIDのSet
+    const [exchangeSelection, setExchangeSelection] = useState<Set<string>>(new Set());
 
     useEffect(() => {
         const fetchInitialData = async () => {
@@ -76,6 +78,7 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
                     if (current && current.phase !== newState.phase) {
                         setSentence([]);
                         setHasCompletedExchange(false);
+                        setExchangeSelection(new Set());
                     }
                     return newState;
                 });
@@ -100,13 +103,13 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
         let pDeck = [...particleDeck];
 
         const handUpdates: Promise<void>[] = players.map(async (player) => {
-            const { drawn: insults, remaining: iRem } = drawCards(iDeck, 3);
+            const { drawn: insults, remaining: iRem } = drawCards(iDeck, HAND_SIZE.insults);
             iDeck = iRem;
-            const { drawn: cushions, remaining: cRem } = drawCards(cDeck, 3);
+            const { drawn: cushions, remaining: cRem } = drawCards(cDeck, HAND_SIZE.cushions);
             cDeck = cRem;
-            const { drawn: nouns, remaining: nRem } = drawCards(nDeck, 2);
+            const { drawn: nouns, remaining: nRem } = drawCards(nDeck, HAND_SIZE.nouns);
             nDeck = nRem;
-            const { drawn: particles, remaining: pRem } = drawCards(pDeck, 2);
+            const { drawn: particles, remaining: pRem } = drawCards(pDeck, HAND_SIZE.particles);
             pDeck = pRem;
 
             const hand: HandType = { insults, cushions, nouns, particles };
@@ -144,6 +147,23 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
         setSentence(prev => prev.filter(c => c.id !== cardId));
     };
 
+    // 交換フェーズ: カード選択（最大2枚）
+    const handleExchangeToggle = (card: Card) => {
+        setExchangeSelection(prev => {
+            const next = new Set(prev);
+            if (next.has(card.id)) {
+                next.delete(card.id);
+            } else {
+                if (next.size >= 2) {
+                    alert('交換できるのは1ラウンドにつき最大2枚までです。');
+                } else {
+                    next.add(card.id);
+                }
+            }
+            return next;
+        });
+    };
+
     // exchange フェーズ確認完了（全員揃ったら select へ）
     const confirmExchange = async () => {
         if (!currentPlayer || !gameState) return;
@@ -154,6 +174,49 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
         if (currentConfirmed[currentPlayer.id]) return;
 
         setHasCompletedExchange(true);
+
+        // --- 手札交換ロジック ---
+        if (exchangeSelection.size > 0) {
+            let currentHand = { ...currentPlayer.hand };
+            const allCards = [
+                ...currentHand.insults,
+                ...currentHand.cushions,
+                ...currentHand.nouns,
+                ...currentHand.particles
+            ];
+
+            const selectedCards = allCards.filter(c => exchangeSelection.has(c.id));
+
+            for (const card of selectedCards) {
+                if (card.type === 'insult') currentHand.insults = currentHand.insults.filter(c => c.id !== card.id);
+                if (card.type === 'cushion') currentHand.cushions = currentHand.cushions.filter(c => c.id !== card.id);
+                if (card.type === 'noun') currentHand.nouns = currentHand.nouns.filter(c => c.id !== card.id);
+                if (card.type === 'particle') currentHand.particles = currentHand.particles.filter(c => c.id !== card.id);
+
+                const fullDeck = card.type === 'insult' ? getShuffledInsultDeck() :
+                    card.type === 'cushion' ? getShuffledCushionDeck() :
+                        card.type === 'noun' ? getShuffledNounDeck() :
+                            getShuffledParticleDeck();
+
+                const currentIds = [
+                    ...currentHand.insults, ...currentHand.cushions, ...currentHand.nouns, ...currentHand.particles
+                ].map(c => c.id);
+
+                // 現在手札に持っていないカードを探す
+                const availableCard = fullDeck.find(c => !currentIds.includes(c.id)) || fullDeck[0];
+
+                if (card.type === 'insult') currentHand.insults.push(availableCard);
+                if (card.type === 'cushion') currentHand.cushions.push(availableCard);
+                if (card.type === 'noun') currentHand.nouns.push(availableCard);
+                if (card.type === 'particle') currentHand.particles.push(availableCard);
+            }
+
+            const { error: handErr } = await supabase.from('players').update({ hand: currentHand }).eq('id', currentPlayer.id);
+            if (handErr) console.error('[exchange] hand update error:', handErr);
+
+            setExchangeSelection(new Set());
+        }
+        // ------------------------
 
         const newConfirmed = { ...currentConfirmed, [currentPlayer.id]: 'confirmed' };
         const { error: confirmErr } = await supabase.from('game_states').update({ votes: newConfirmed }).eq('id', gameState.id);
@@ -280,11 +343,14 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
                 {/* --- Exchange フェーズ --- */}
                 {gameState.phase === 'exchange' && (
                     <div className="space-y-6 text-center">
-                        <h2 className="text-2xl font-bold text-gray-800">手札を確認してください</h2>
+                        <h2 className="text-2xl font-bold text-gray-800">手札を確認・交換してください</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                            不要なカードをクリックして選択（最大2枚）。「準備完了」を押すと選択したカードを山札の新しいカードと交換し、次のフェーズに進みます。交換しない場合はそのまま押してください。
+                        </p>
                         <Hand
                             hand={currentPlayer.hand}
-                            selectedIds={new Set()}
-                            onToggle={() => { }}
+                            selectedIds={exchangeSelection}
+                            onToggle={handleExchangeToggle}
                             disabled={hasCompletedExchange}
                         />
                         <button
@@ -292,7 +358,8 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
                             disabled={hasCompletedExchange}
                             className="bg-purple-600 text-white font-bold py-3 px-8 rounded-lg shadow disabled:opacity-50"
                         >
-                            {hasCompletedExchange ? `確認待ち... (${confirmedCount}/${players.length}人)` : '確認完了'}
+                            {hasCompletedExchange ? `確認待ち... (${confirmedCount}/${players.length}人)` :
+                                (exchangeSelection.size > 0 ? `${exchangeSelection.size}枚を交換して準備完了` : '交換せずに準備完了')}
                         </button>
                     </div>
                 )}
@@ -446,12 +513,16 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
                             <div>
                                 <ScoreBoard players={players} isFinal={gameState.phase === 'gameover'} />
                                 {gameState.phase === 'gameover' && (
-                                    <div className="mt-8 text-center">
+                                    <div className="mt-8 flex flex-col items-center justify-center gap-4 border-t pt-8">
+                                        <p className="text-gray-600 font-bold">お疲れ様でした！</p>
                                         <button
-                                            onClick={() => router.push('/')}
-                                            className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-lg"
+                                            onClick={() => {
+                                                localStorage.removeItem(`sdp_playerId_${roomId}`);
+                                                router.push('/');
+                                            }}
+                                            className="bg-indigo-600 hover:bg-indigo-700 text-white font-black py-4 px-12 rounded-full shadow-lg transform transition-transform hover:scale-105"
                                         >
-                                            トップページに戻る
+                                            ホーム画面に戻る
                                         </button>
                                     </div>
                                 )}

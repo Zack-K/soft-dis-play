@@ -123,37 +123,39 @@ export default function Lobby() {
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
         <div className="bg-indigo-600 p-6 text-center">
           <h1 className="text-3xl font-black text-white tracking-wider">Soft Dis-Play</h1>
-          <p className="text-indigo-200 mt-2 text-sm font-medium">その悪口、もう少しお上品に言えませんか？</p>
+          <p className="text-indigo-50 mt-2 text-sm font-medium">その悪口、もう少しお上品に言えませんか？</p>
         </div>
 
         <div className="p-8">
           {error && (
-            <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm mb-6 border border-red-200">
+            <div role="alert" aria-live="assertive" className="bg-red-50 text-red-600 p-3 rounded-md text-sm mb-6 border border-red-200">
               {error}
             </div>
           )}
 
           <div className="mb-6">
-            <label className="block text-sm font-bold text-gray-700 mb-2">ニックネーム (必須)</label>
+            <label htmlFor="playerName" className="block text-sm font-bold text-gray-700 mb-2">ニックネーム (必須)</label>
             <input
+              id="playerName"
               type="text"
               value={playerName}
               onChange={(e) => setPlayerName(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors mb-4"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors mb-4 placeholder:text-gray-500 text-gray-900"
               placeholder="あなたの名前"
               maxLength={10}
               disabled={loading}
             />
 
-            <label className="block text-sm font-bold text-gray-700 mb-2">ラウンド数 (新しく作る場合)</label>
+            <label htmlFor="totalRounds" className="block text-sm font-bold text-gray-700 mb-2">ラウンド数 (新しく作る場合)</label>
             <select
+              id="totalRounds"
               value={totalRounds}
               onChange={(e) => setTotalRounds(Number(e.target.value))}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors cursor-pointer bg-gray-50 mb-2"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors cursor-pointer bg-gray-50 mb-2 text-gray-900"
               disabled={loading}
             >
               {[1, 2, 3, 4, 5, 10].map(r => (
-                <option key={r} value={r}>{r} ラウンドで遊ぶ</option>
+                <option key={r} value={r} className="text-gray-900">{r} ラウンドで遊ぶ</option>
               ))}
             </select>
           </div>
@@ -162,23 +164,26 @@ export default function Lobby() {
             <button
               onClick={createRoom}
               disabled={loading}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg shadow transition-colors disabled:opacity-50"
+              aria-busy={loading}
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg shadow transition-colors disabled:opacity-50 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 outline-none"
             >
               {loading ? '処理中...' : '新しくルームを作る'}
             </button>
 
-            <div className="relative flex items-center py-2">
+            <div className="relative flex items-center py-2" aria-hidden="true">
               <div className="flex-grow border-t border-gray-200"></div>
-              <span className="flex-shrink-0 mx-4 text-gray-400 text-sm font-medium">または</span>
+              <span className="flex-shrink-0 mx-4 text-gray-500 text-sm font-medium">または</span>
               <div className="flex-grow border-t border-gray-200"></div>
             </div>
 
             <div className="flex gap-2">
+              <label htmlFor="roomCode" className="sr-only">ルームコード</label>
               <input
+                id="roomCode"
                 type="text"
                 value={roomCode}
                 onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
-                className="flex-grow px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 tracking-widest text-center uppercase"
+                className="flex-grow px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 tracking-widest text-center uppercase placeholder:text-gray-500 text-gray-900"
                 placeholder="6桁のコード"
                 maxLength={6}
                 disabled={loading}
@@ -186,7 +191,8 @@ export default function Lobby() {
               <button
                 onClick={joinRoom}
                 disabled={loading || roomCode.length < 1}
-                className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-lg shadow transition-colors disabled:opacity-50 whitespace-nowrap"
+                aria-busy={loading}
+                className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-lg shadow transition-colors disabled:opacity-50 whitespace-nowrap focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 outline-none"
               >
                 参加する
               </button>

@@ -2,103 +2,103 @@
   "insultCards": [
     {
       "id": "i01",
-      "category": "知能・能力",
-      "text": "ぼんくら"
+      "category": "業務姿勢",
+      "text": "仕事が観光気分"
     },
     {
       "id": "i02",
-      "category": "知能・能力",
-      "text": "のろま"
+      "category": "業務姿勢",
+      "text": "会議の空気イス"
     },
     {
       "id": "i03",
-      "category": "知能・能力",
-      "text": "ポンコツ"
+      "category": "業務姿勢",
+      "text": "話を着陸させないパイロット"
     },
     {
       "id": "i04",
-      "category": "知能・能力",
-      "text": "石頭"
+      "category": "業務姿勢",
+      "text": "締切と相性が悪い"
     },
     {
       "id": "i05",
-      "category": "知能・能力",
-      "text": "能なし"
+      "category": "業務姿勢",
+      "text": "議事録の亡霊"
     },
     {
       "id": "i06",
-      "category": "知能・能力",
-      "text": "間抜け"
+      "category": "思考・判断",
+      "text": "答え合わせ前提の発言"
     },
     {
       "id": "i07",
-      "category": "性格・行動",
-      "text": "ケチ"
+      "category": "思考・判断",
+      "text": "話の渋滞をつくる名人"
     },
     {
       "id": "i08",
-      "category": "性格・行動",
-      "text": "嘘つき"
+      "category": "思考・判断",
+      "text": "論点を海外旅行させがち"
     },
     {
       "id": "i09",
-      "category": "性格・行動",
-      "text": "怠け者"
+      "category": "思考・判断",
+      "text": "理解にウォームアップ時間が必要"
     },
     {
       "id": "i10",
-      "category": "性格・行動",
-      "text": "偽善者"
+      "category": "思考・判断",
+      "text": "結論が影踏みレベルで届かない"
     },
     {
       "id": "i11",
-      "category": "性格・行動",
-      "text": "見栄っ張り"
+      "category": "行動・クセ",
+      "text": "未来永劫メモを取らない派"
     },
     {
       "id": "i12",
-      "category": "性格・行動",
-      "text": "わがまま"
+      "category": "行動・クセ",
+      "text": "タスクを野放しにする牧場主"
     },
     {
       "id": "i13",
-      "category": "性格・行動",
-      "text": "卑怯"
+      "category": "行動・クセ",
+      "text": "返事だけは秒で返す達人"
     },
     {
       "id": "i14",
-      "category": "比喩",
-      "text": "雑魚"
+      "category": "行動・クセ",
+      "text": "存在感がオフライン"
     },
     {
       "id": "i15",
-      "category": "比喩",
-      "text": "木偶の坊"
+      "category": "行動・クセ",
+      "text": "優先順位が常にランダム"
     },
     {
       "id": "i16",
       "category": "比喩",
-      "text": "金魚の糞"
+      "text": "情報の湿気取りが必要"
     },
     {
       "id": "i17",
-      "category": "古風",
-      "text": "おたんこなす"
+      "category": "比喩",
+      "text": "話が四次元ポケット化"
     },
     {
       "id": "i18",
-      "category": "古風",
-      "text": "とんちんかん"
+      "category": "比喩",
+      "text": "頼むと消える忍者"
     },
     {
       "id": "i19",
-      "category": "古風",
-      "text": "すっとこどっこい"
+      "category": "比喩",
+      "text": "データと仲が悪い"
     },
     {
       "id": "i20",
-      "category": "古風",
-      "text": "あんぽんたん"
+      "category": "比喩",
+      "text": "議論のハンドルが緩い"
     }
   ],
   "cushionCards": [
@@ -110,97 +110,97 @@
     {
       "id": "c02",
       "category": "依頼・配慮",
-      "text": "お手数ですが"
+      "text": "お手数ではございますが"
     },
     {
       "id": "c03",
       "category": "依頼・配慮",
-      "text": "大変僭越ながら"
+      "text": "差し支えなければ"
     },
     {
       "id": "c04",
       "category": "依頼・配慮",
-      "text": "差し支えなければ"
+      "text": "念のため申し上げますと"
     },
     {
       "id": "c05",
       "category": "依頼・配慮",
-      "text": "ご迷惑とは存じますが"
+      "text": "ご負担をおかけしますが"
     },
     {
       "id": "c06",
-      "category": "断り・謝罪",
-      "text": "誠に申し訳ございませんが"
-    },
-    {
-      "id": "c07",
-      "category": "断り・謝罪",
-      "text": "せっかくではございますが"
-    },
-    {
-      "id": "c08",
-      "category": "断り・謝罪",
-      "text": "あいにくではございますが"
-    },
-    {
-      "id": "c09",
-      "category": "断り・謝罪",
-      "text": "心苦しいのですが"
-    },
-    {
-      "id": "c10",
-      "category": "反論・指摘",
+      "category": "指摘・反論",
       "text": "お言葉を返すようですが"
     },
     {
-      "id": "c11",
-      "category": "反論・指摘",
-      "text": "念のため申し上げますと"
+      "id": "c07",
+      "category": "指摘・反論",
+      "text": "僭越ながら"
     },
     {
-      "id": "c12",
-      "category": "反論・指摘",
+      "id": "c08",
+      "category": "指摘・反論",
+      "text": "大変恐縮ではございますが"
+    },
+    {
+      "id": "c09",
+      "category": "指摘・反論",
+      "text": "一点だけ補足させていただくと"
+    },
+    {
+      "id": "c10",
+      "category": "指摘・反論",
       "text": "失礼ながら"
     },
     {
+      "id": "c11",
+      "category": "肯定風",
+      "text": "ご意見として大変興味深いのですが"
+    },
+    {
+      "id": "c12",
+      "category": "肯定風",
+      "text": "前向きに受け止めつつ申し上げますと"
+    },
+    {
       "id": "c13",
-      "category": "反論・指摘",
-      "text": "差し出がましいようですが"
+      "category": "肯定風",
+      "text": "大変示唆に富んでおりますが"
     },
     {
       "id": "c14",
-      "category": "婉曲（京言葉）",
-      "text": "さすがですなぁ"
+      "category": "肯定風",
+      "text": "意欲的なお考えと理解しておりますが"
     },
     {
       "id": "c15",
-      "category": "婉曲（京言葉）",
-      "text": "えらいご熱心どすな"
+      "category": "肯定風",
+      "text": "チャレンジ精神は素晴らしいのですが"
     },
     {
       "id": "c16",
-      "category": "婉曲（京言葉）",
-      "text": "まぁまぁ、よう似合ってますわ"
+      "category": "遠回し",
+      "text": "率直に申し上げにくいのですが"
     },
     {
       "id": "c17",
-      "category": "婉曲（京言葉）",
-      "text": "よぅ知ってはりますなぁ"
+      "category": "遠回し",
+      "text": "あくまで個人的な見解ではございますが"
     },
     {
       "id": "c18",
-      "category": "婉曲（英訳）",
-      "text": "それはまた大胆なご決断ですね"
+      "category": "遠回し",
+      "text": "表現が適切か分かりかねますが"
     },
     {
       "id": "c19",
-      "category": "婉曲（英訳）",
-      "text": "なかなか印象的でございますね"
+      "category": "遠回し",
+      "text": "誤解を恐れず申し上げますと"
     },
     {
       "id": "c20",
-      "category": "婉曲（英訳）",
-      "text": "なるほど、それも一つの見方ですね"
+      "category": "遠回し",
+      "text": "語弊を承知で申し上げますと"
     }
   ],
   "nounCards": [
@@ -226,220 +226,95 @@
     },
     {
       "id": "n05",
-      "category": "書類・成果物",
-      "text": "計画書"
-    },
-    {
-      "id": "n06",
-      "category": "書類・成果物",
+      "category": "成果物",
       "text": "報告書"
     },
     {
-      "id": "n07",
-      "category": "書類・成果物",
+      "id": "n06",
+      "category": "成果物",
       "text": "提案書"
     },
     {
-      "id": "n08",
-      "category": "書類・成果物",
-      "text": "議事録"
-    },
-    {
-      "id": "n09",
-      "category": "場所・場面",
+      "id": "n07",
+      "category": "場面",
       "text": "会議"
     },
     {
-      "id": "n10",
-      "category": "場所・場面",
+      "id": "n08",
+      "category": "場面",
       "text": "プレゼン"
     },
     {
-      "id": "n11",
-      "category": "場所・場面",
-      "text": "朝礼"
-    },
-    {
-      "id": "n12",
-      "category": "場所・場面",
-      "text": "飲み会"
-    },
-    {
-      "id": "n13",
-      "category": "抽象",
-      "text": "努力"
-    },
-    {
-      "id": "n14",
-      "category": "抽象",
-      "text": "やる気"
-    },
-    {
-      "id": "n15",
-      "category": "抽象",
-      "text": "センス"
-    },
-    {
-      "id": "n16",
-      "category": "ビジネス",
-      "text": "進捗"
-    },
-    {
-      "id": "n17",
-      "category": "ビジネス",
-      "text": "納期"
-    },
-    {
-      "id": "n18",
-      "category": "ビジネス",
-      "text": "予算"
-    },
-    {
-      "id": "n19",
-      "category": "ビジネス",
-      "text": "稟議"
-    },
-    {
-      "id": "n20",
-      "category": "ビジネス",
-      "text": "クライアント"
-    },
-    {
-      "id": "n21",
-      "category": "ビジネス",
-      "text": "仕様"
-    },
-    {
-      "id": "n22",
-      "category": "ビジネス",
-      "text": "タスク"
-    },
-    {
-      "id": "n23",
-      "category": "ビジネス",
-      "text": "指示"
-    },
-    {
-      "id": "n24",
-      "category": "ビジネス",
-      "text": "対応"
-    },
-    {
-      "id": "n25",
-      "category": "ビジネス",
-      "text": "連絡"
-    },
-    {
-      "id": "n26",
-      "category": "日常・概念",
-      "text": "常識"
-    },
-    {
-      "id": "n27",
-      "category": "日常・概念",
-      "text": "態度"
-    },
-    {
-      "id": "n28",
-      "category": "日常・概念",
+      "id": "n09",
+      "category": "抽象概念",
       "text": "やり方"
     },
     {
-      "id": "n29",
-      "category": "日常・概念",
-      "text": "結果"
-    },
-    {
-      "id": "n30",
-      "category": "日常・概念",
-      "text": "理由"
-    },
-    {
-      "id": "n31",
-      "category": "日常・概念",
-      "text": "言い訳"
-    },
-    {
-      "id": "n32",
-      "category": "日常・概念",
-      "text": "配慮"
-    },
-    {
-      "id": "n33",
-      "category": "日常・概念",
+      "id": "n10",
+      "category": "抽象概念",
       "text": "発言"
     },
     {
-      "id": "n34",
-      "category": "日常・概念",
-      "text": "考え"
+      "id": "n11",
+      "category": "人物",
+      "text": "社長"
     },
     {
-      "id": "n35",
-      "category": "日常・概念",
-      "text": "行動"
+      "id": "n12",
+      "category": "人物",
+      "text": "新人"
     },
     {
-      "id": "n36",
-      "category": "感情・評価",
-      "text": "不満"
+      "id": "n13",
+      "category": "成果物",
+      "text": "仕様書"
     },
     {
-      "id": "n37",
-      "category": "感情・評価",
-      "text": "迷惑"
+      "id": "n14",
+      "category": "成果物",
+      "text": "資料"
     },
     {
-      "id": "n38",
-      "category": "感情・評価",
-      "text": "限界"
+      "id": "n15",
+      "category": "場面",
+      "text": "面談"
     },
     {
-      "id": "n39",
-      "category": "感情・評価",
-      "text": "妥協"
+      "id": "n16",
+      "category": "場面",
+      "text": "打ち合わせ"
     },
     {
-      "id": "n40",
-      "category": "感情・評価",
-      "text": "評価"
+      "id": "n17",
+      "category": "抽象概念",
+      "text": "進捗"
     },
     {
-      "id": "n41",
-      "category": "感情・評価",
-      "text": "期待"
+      "id": "n18",
+      "category": "抽象概念",
+      "text": "説得力"
     },
     {
-      "id": "n42",
-      "category": "感情・評価",
+      "id": "n19",
+      "category": "抽象概念",
       "text": "責任"
     },
     {
-      "id": "n43",
-      "category": "感情・評価",
-      "text": "苦労"
-    },
-    {
-      "id": "n44",
-      "category": "感情・評価",
-      "text": "負担"
-    },
-    {
-      "id": "n45",
-      "category": "感情・評価",
-      "text": "ストレス"
+      "id": "n20",
+      "category": "抽象概念",
+      "text": "配慮"
     }
   ],
   "particleCards": [
     {
       "id": "p01",
       "category": "助詞",
-      "text": "が"
+      "text": "は"
     },
     {
       "id": "p02",
       "category": "助詞",
-      "text": "は"
+      "text": "が"
     },
     {
       "id": "p03",
@@ -459,127 +334,77 @@
     {
       "id": "p06",
       "category": "助詞",
-      "text": "も"
+      "text": "って"
     },
     {
       "id": "p07",
       "category": "助詞",
-      "text": "の"
+      "text": "より"
     },
     {
       "id": "p08",
       "category": "助詞",
-      "text": "と"
+      "text": "について"
     },
     {
       "id": "p09",
       "category": "助詞",
-      "text": "から"
+      "text": "さえ"
     },
     {
       "id": "p10",
       "category": "助詞",
-      "text": "まで"
+      "text": "みたいに"
     },
     {
       "id": "p11",
       "category": "助詞",
-      "text": "が"
+      "text": "から"
     },
     {
       "id": "p12",
       "category": "助詞",
-      "text": "は"
+      "text": "まで"
     },
     {
       "id": "p13",
       "category": "助詞",
-      "text": "を"
+      "text": "など"
     },
     {
       "id": "p14",
       "category": "助詞",
-      "text": "に"
+      "text": "ほど"
     },
     {
       "id": "p15",
       "category": "助詞",
-      "text": "で"
+      "text": "くらい"
     },
     {
       "id": "p16",
       "category": "助詞",
-      "text": "だから"
+      "text": "しか"
     },
     {
       "id": "p17",
       "category": "助詞",
-      "text": "そして"
+      "text": "こそ"
     },
     {
       "id": "p18",
       "category": "助詞",
-      "text": "しかし"
+      "text": "でも"
     },
     {
       "id": "p19",
       "category": "助詞",
-      "text": "あるいは"
+      "text": "ながら"
     },
     {
       "id": "p20",
       "category": "助詞",
-      "text": "へ"
-    },
-    {
-      "id": "p21",
-      "category": "助詞",
-      "text": "すら"
-    },
-    {
-      "id": "p22",
-      "category": "助詞",
-      "text": "さえ"
-    },
-    {
-      "id": "p23",
-      "category": "助詞",
-      "text": "しか"
-    },
-    {
-      "id": "p24",
-      "category": "助詞",
-      "text": "ばかり"
-    },
-    {
-      "id": "p25",
-      "category": "助詞",
-      "text": "など"
-    },
-    {
-      "id": "p26",
-      "category": "助詞",
-      "text": "くらい"
-    },
-    {
-      "id": "p27",
-      "category": "助詞",
-      "text": "ほど"
-    },
-    {
-      "id": "p28",
-      "category": "助詞",
-      "text": "より"
-    },
-    {
-      "id": "p29",
-      "category": "助詞",
-      "text": "について"
-    },
-    {
-      "id": "p30",
-      "category": "助詞",
-      "text": "みたいに"
+      "text": "として"
     }
   ]
 }
